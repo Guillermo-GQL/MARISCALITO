@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { IdentidadSistema } from '../../modulos/modulo-01/identidad-sistema/IdentidadSistema'
+import { AsignacionMenus } from '../../modulos/modulo-01/asignacion-menus/AsignacionMenus'
 
 export const navigation = [
   { label: 'Inicio', pages: [{ id: 'panel', title: 'Panel principal' }] },
@@ -57,6 +58,7 @@ export type RouteId = PageId | (typeof secondaryPages)[number]['id']
 // Cada integrante importa su vista y la registra aquí, sin modificar el layout.
 const views: Partial<Record<RouteId, ComponentType>> = {
   identidad: IdentidadSistema,
+  asignacion: AsignacionMenus,
 }
 
 const menuPages = navigation.flatMap(group =>
