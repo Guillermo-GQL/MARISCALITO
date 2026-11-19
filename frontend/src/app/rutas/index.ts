@@ -2,6 +2,9 @@ import { createElement, type ComponentType } from 'react'
 import Login from '../../modulos/modulo-01/acceso/Login'
 import SeleccionPerfil from '../../modulos/modulo-01/acceso/SeleccionPerfil'
 import Perfil from '../../modulos/modulo-01/acceso/Perfil'
+import { EstadosVigencia } from '../../modulos/modulo-01/estados-vigencia/EstadosVigencia'
+import { Usuarios } from '../../modulos/modulo-01/usuarios/Usuarios'
+import { IdentidadSistema } from '../../modulos/modulo-01/identidad-sistema/IdentidadSistema'
 
 export const navigation = [
   { label: 'Inicio', pages: [{ id: 'panel', title: 'Panel principal' }] },
@@ -67,6 +70,12 @@ const views: Partial<Record<RouteId, ComponentType>> = {
   perfil: Perfil,
   'perfil/editar': PerfilEditar,
   'perfil/contrasena': PerfilContrasena,
+  identidad: IdentidadSistema,
+  vigencia: EstadosVigencia,
+  usuarios: Usuarios,
+  'usuarios/nuevo': Usuarios,
+  'usuarios/editar': Usuarios,
+  'usuarios/detalle': Usuarios,
 }
 
 const menuPages = navigation.flatMap(group =>
