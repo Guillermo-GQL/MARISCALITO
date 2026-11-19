@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { EstadosVigencia } from '../../modulos/modulo-01/estados-vigencia/EstadosVigencia'
+import { Usuarios } from '../../modulos/modulo-01/usuarios/Usuarios'
 import { IdentidadSistema } from '../../modulos/modulo-01/identidad-sistema/IdentidadSistema'
 
 export const navigation = [
@@ -59,6 +60,10 @@ export type RouteId = PageId | (typeof secondaryPages)[number]['id']
 const views: Partial<Record<RouteId, ComponentType>> = {
   identidad: IdentidadSistema,
   vigencia: EstadosVigencia,
+  usuarios: Usuarios,
+  'usuarios/nuevo': Usuarios,
+  'usuarios/editar': Usuarios,
+  'usuarios/detalle': Usuarios,
 }
 
 const menuPages = navigation.flatMap(group =>
