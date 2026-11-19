@@ -7,6 +7,7 @@ import Perfil from '../../modulos/modulo-01/acceso/Perfil'
 import { EstadosVigencia } from '../../modulos/modulo-01/estados-vigencia/EstadosVigencia'
 import { Usuarios } from '../../modulos/modulo-01/usuarios/Usuarios'
 import { IdentidadSistema } from '../../modulos/modulo-01/identidad-sistema/IdentidadSistema'
+import { RecuperacionCuentas, RestablecerCuenta, SolicitarRecuperacion } from '../../modulos/modulo-01/recuperacion-cuentas/RecuperacionCuentas'
 
 export const navigation = [
   { label: 'Inicio', pages: [{ id: 'panel', title: 'Panel principal' }] },
@@ -75,6 +76,9 @@ const views: Partial<Record<RouteId, ComponentType>> = {
   'perfil/editar': PerfilEditar,
   'perfil/contrasena': PerfilContrasena,
   identidad: IdentidadSistema,
+  recuperacion: RecuperacionCuentas,
+  'acceso/recuperar': SolicitarRecuperacion,
+  'acceso/restablecer': RestablecerCuenta,
   vigencia: EstadosVigencia,
   usuarios: Usuarios,
   'usuarios/nuevo': Usuarios,
@@ -98,4 +102,4 @@ const routeDefinitions: RouteDefinition[] = [
 
 export const pages = routeDefinitions.map(page => ({ ...page, standalone: page.navigationId === 'acceso', View: views[page.id] }))
 
-export const readRoute = () => location.hash.slice(1) || 'panel'
+export const readRoute = () => location.hash.slice(1).split('?')[0] || 'panel'
