@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react'
+import { EstadosVigencia } from '../../modulos/modulo-01/estados-vigencia/EstadosVigencia'
 import { Usuarios } from '../../modulos/modulo-01/usuarios/Usuarios'
 import { IdentidadSistema } from '../../modulos/modulo-01/identidad-sistema/IdentidadSistema'
 
@@ -58,6 +59,7 @@ export type RouteId = PageId | (typeof secondaryPages)[number]['id']
 // Cada integrante importa su vista y la registra aquí, sin modificar el layout.
 const views: Partial<Record<RouteId, ComponentType>> = {
   identidad: IdentidadSistema,
+  vigencia: EstadosVigencia,
   usuarios: Usuarios,
   'usuarios/nuevo': Usuarios,
   'usuarios/editar': Usuarios,
