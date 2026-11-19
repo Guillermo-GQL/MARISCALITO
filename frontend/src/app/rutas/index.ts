@@ -7,6 +7,7 @@ import Perfil from '../../modulos/modulo-01/acceso/Perfil'
 import { EstadosVigencia } from '../../modulos/modulo-01/estados-vigencia/EstadosVigencia'
 import { Usuarios } from '../../modulos/modulo-01/usuarios/Usuarios'
 import { IdentidadSistema } from '../../modulos/modulo-01/identidad-sistema/IdentidadSistema'
+import { RolesPermisos } from '../../modulos/modulo-01/roles-y-permisos/RolesPermisos'
 import { RecuperacionCuentas, RestablecerCuenta, SolicitarRecuperacion } from '../../modulos/modulo-01/recuperacion-cuentas/RecuperacionCuentas'
 
 export const navigation = [
@@ -76,6 +77,7 @@ const views: Partial<Record<RouteId, ComponentType>> = {
   'perfil/editar': PerfilEditar,
   'perfil/contrasena': PerfilContrasena,
   identidad: IdentidadSistema,
+  roles: RolesPermisos,
   recuperacion: RecuperacionCuentas,
   'acceso/recuperar': SolicitarRecuperacion,
   'acceso/restablecer': RestablecerCuenta,
