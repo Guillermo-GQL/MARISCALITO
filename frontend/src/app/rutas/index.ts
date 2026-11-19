@@ -1,5 +1,7 @@
-import type { ComponentType } from 'react'
-import { IdentidadSistema } from '../../modulos/modulo-01/identidad-sistema/IdentidadSistema'
+import { createElement, type ComponentType } from 'react'
+import Login from '../../modulos/modulo-01/acceso/Login'
+import SeleccionPerfil from '../../modulos/modulo-01/acceso/SeleccionPerfil'
+import Perfil from '../../modulos/modulo-01/acceso/Perfil'
 
 export const navigation = [
   { label: 'Inicio', pages: [{ id: 'panel', title: 'Panel principal' }] },
@@ -55,8 +57,16 @@ export const secondaryPages = [
 export type RouteId = PageId | (typeof secondaryPages)[number]['id']
 
 // Cada integrante importa su vista y la registra aquí, sin modificar el layout.
+const PerfilEditar = () => createElement(Perfil, { abrir: 'editar' })
+const PerfilContrasena = () => createElement(Perfil, { abrir: 'clave' })
+
 const views: Partial<Record<RouteId, ComponentType>> = {
-  identidad: IdentidadSistema,
+  acceso: Login,
+  'acceso/perfiles': SeleccionPerfil,
+  'acceso/cambiar-rol': SeleccionPerfil,
+  perfil: Perfil,
+  'perfil/editar': PerfilEditar,
+  'perfil/contrasena': PerfilContrasena,
 }
 
 const menuPages = navigation.flatMap(group =>
