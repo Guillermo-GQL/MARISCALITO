@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react'
+import { PanelPrincipal } from '../../modulos/modulo-01/panel-principal/PanelPrincipal'
 
 export const navigation = [
   { label: 'Inicio', pages: [{ id: 'panel', title: 'Panel principal' }] },
@@ -54,7 +55,9 @@ export const secondaryPages = [
 export type RouteId = PageId | (typeof secondaryPages)[number]['id']
 
 // Cada integrante importa su vista y la registra aquí, sin modificar el layout.
-const views: Partial<Record<RouteId, ComponentType>> = {}
+const views: Partial<Record<RouteId, ComponentType>> = {
+  panel: PanelPrincipal,
+}
 
 const menuPages = navigation.flatMap(group =>
   group.pages.map(page => ({ ...page, group: group.label })),
