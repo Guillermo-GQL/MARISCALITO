@@ -1,4 +1,5 @@
 import { createElement, type ComponentType } from 'react'
+import CatalogoModulos from '../../modulos/modulo-01/catalogo-modulos/CatalogoModulos'
 import MenusSubmenus from '../../modulos/modulo-01/menus/MenusSubmenus'
 import Login from '../../modulos/modulo-01/acceso/Login'
 import SeleccionPerfil from '../../modulos/modulo-01/acceso/SeleccionPerfil'
@@ -65,6 +66,7 @@ const PerfilEditar = () => createElement(Perfil, { abrir: 'editar' })
 const PerfilContrasena = () => createElement(Perfil, { abrir: 'clave' })
 
 const views: Partial<Record<RouteId, ComponentType>> = {
+  modulos: CatalogoModulos,
   menus: MenusSubmenus,
   acceso: Login,
   'acceso/perfiles': SeleccionPerfil,
