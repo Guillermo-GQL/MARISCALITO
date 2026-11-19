@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { IdentidadSistema } from '../../modulos/modulo-01/identidad-sistema/IdentidadSistema'
+import { RecuperacionCuentas, RestablecerCuenta, SolicitarRecuperacion } from '../../modulos/modulo-01/recuperacion-cuentas/RecuperacionCuentas'
 
 export const navigation = [
   { label: 'Inicio', pages: [{ id: 'panel', title: 'Panel principal' }] },
@@ -57,6 +58,9 @@ export type RouteId = PageId | (typeof secondaryPages)[number]['id']
 // Cada integrante importa su vista y la registra aquí, sin modificar el layout.
 const views: Partial<Record<RouteId, ComponentType>> = {
   identidad: IdentidadSistema,
+  recuperacion: RecuperacionCuentas,
+  'acceso/recuperar': SolicitarRecuperacion,
+  'acceso/restablecer': RestablecerCuenta,
 }
 
 const menuPages = navigation.flatMap(group =>
@@ -75,4 +79,4 @@ const routeDefinitions: RouteDefinition[] = [
 
 export const pages = routeDefinitions.map(page => ({ ...page, standalone: page.navigationId === 'acceso', View: views[page.id] }))
 
-export const readRoute = () => location.hash.slice(1) || 'panel'
+export const readRoute = () => location.hash.slice(1).split('?')[0] || 'panel'
